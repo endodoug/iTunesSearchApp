@@ -12,7 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // set up string to represent search term
+        let searchTerm = "Doug Harper"
+        let escapedSearchTerm = searchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+
+        print(escapedSearchTerm)
+        
+        // create search string
+        let searchString = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&entity=software"
+        print(searchString)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
