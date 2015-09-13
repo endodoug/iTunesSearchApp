@@ -15,14 +15,15 @@ class ViewController: UIViewController {
         
         // set up string to represent search term
         let searchTerm = "Doug Harper"
-        let escapedSearchTerm = searchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
-
-        print(escapedSearchTerm)
-        
-        // create search string
-        let searchString = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&entity=software"
-        print(searchString)
-        
+        if let escapedSearchTerm = searchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
+            
+            print(escapedSearchTerm)
+            
+            // create search string
+            let searchString = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&entity=software"
+            print(searchString)
+            
+        }  
         
     }
 
