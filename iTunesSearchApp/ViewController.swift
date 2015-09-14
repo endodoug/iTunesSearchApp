@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -34,6 +36,16 @@ class ViewController: UIViewController {
                         print("Error: \(error?.localizedDescription)")
                     } else {
                         print("data: \(data)")
+                        
+                        var jsonError = NSError?.self
+                        
+                        do {
+                            let jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
+                             print("jsonData: \(jsonData)")
+                        } catch {
+                            print("do catch error")
+                        }
+                        
                     }
                     
                     
