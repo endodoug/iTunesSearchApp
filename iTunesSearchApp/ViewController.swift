@@ -23,6 +23,28 @@ class ViewController: UIViewController {
             let searchString = "https://itunes.apple.com/search?term=\(escapedSearchTerm)&entity=software"
             print(searchString)
             
+            // create URL String
+            
+            if let url = NSURL(string: searchString) {
+                
+                let dataTask = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {
+                    (data: NSData?, response: NSURLResponse?, error: NSError?) in
+                    
+                    if error != nil {
+                        print("Error: \(error?.localizedDescription)")
+                    } else {
+                        print("data: \(data)")
+                    }
+                    
+                    
+                    
+                })
+                
+                dataTask.resume()
+                
+            }
+            
+            
         }  
         
     }
