@@ -14,11 +14,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var appDataArray = [AppData]()
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // set up string to represent search term
-        let searchTerm = "Doug Harper"
+        let searchTerm = "Games"
         if let escapedSearchTerm = searchTerm.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding) {
             
             print(escapedSearchTerm)
@@ -81,20 +83,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                     self.appDataArray = appDataArray
                                     print("app data: \(self.appDataArray)")
                                     
+                                    self.tableView.reloadData()
+                                    
                                 })
                                 
                             }
-                            
-                            
-                            
                         } catch {
                             print("do catch error")
                         }
-                        
                     }
-                    
-                    
-                    
                 })
                 
                 dataTask.resume()
@@ -116,12 +113,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return appDataArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
-        cell.textLabel?.text = NSDate().description
+        var cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        
+        var appData = appDataArray[indexPath.row]
+        
+        
+        
+        cell.textLabel?.text = appData.appName
+        cell.detailTextLabel?.text = appData.authorName
         
         return cell
     }
