@@ -29,19 +29,57 @@ class ViewController: UIViewController {
             
             if let url = NSURL(string: searchString) {
                 
+                
+                print("before")
                 let dataTask = NSURLSession.sharedSession().dataTaskWithURL(url, completionHandler: {
                     (data: NSData?, response: NSURLResponse?, error: NSError?) in
                     
                     if error != nil {
                         print("Error: \(error?.localizedDescription)")
                     } else {
-                        print("data: \(data)")
+                        //print("data: \(data)")
                         
                         var jsonError = NSError?.self
                         
                         do {
                             let jsonData = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSDictionary
                              print("jsonData: \(jsonData)")
+                            print("response")
+                            
+                            if let resultsArray = jsonData["results"] as? NSArray {
+                                
+                                var appDataArray = [AppData]()
+                                
+                                // iterate over the array
+                                for item in resultsArray {
+                                    
+                                    if let artworkURLString =  item["artworkUrl60"] as? NSString {
+                                        print("artwork: \(artworkURLString)")
+                                        
+                                        if let artistName = item["artistName"] as? NSString {
+                                            print("artist: \(artistName)")
+                                            
+                                            if let appName = item["trackCensoredName"] as? String? {
+                                                print("app: \(appName)")
+                                                
+                                                
+                                                let appData = AppData(authorName: artistName as String, appName: (appName)!, imageURLString: artworkURLString as String)
+                                                
+                                                appDataArray.append(appData)
+                                                
+                                            
+                                                }
+                                            }
+                                        }
+                                    
+                                    
+                                }
+                                
+                                
+                            }
+                            
+                            
+                            
                         } catch {
                             print("do catch error")
                         }
@@ -53,6 +91,7 @@ class ViewController: UIViewController {
                 })
                 
                 dataTask.resume()
+                print("end")
                 
             }
             
