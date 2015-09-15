@@ -10,7 +10,9 @@ import UIKit
 
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var appDataArray = [AppData]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,10 +73,15 @@ class ViewController: UIViewController {
                                                 }
                                             }
                                         }
-                                    
-                                    
                                 }
-                                
+                               
+                                // add Grand Central Dispatch
+                                dispatch_async(dispatch_get_main_queue(), {
+                                    
+                                    self.appDataArray = appDataArray
+                                    print("app data: \(self.appDataArray)")
+                                    
+                                })
                                 
                             }
                             
@@ -105,6 +112,24 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // Table View Data Source Methods
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = UITableViewCell()
+        cell.textLabel?.text = NSDate().description
+        
+        return cell
+    }
+
+    
+    
+    
+    
 
 }
 

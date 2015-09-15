@@ -21,4 +21,8 @@ class AppData: NSObject {
         
         super.init()
     }
+    
+    override var description: String {
+        return "[\(self.authorName), \(self.appName), \(self.imageURLString)] "
+    }
 }
