@@ -13,6 +13,7 @@
 		B77103671BA618A70029BF68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B77103661BA618A70029BF68 /* Assets.xcassets */; };
 		B771036A1BA618A70029BF68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B77103681BA618A70029BF68 /* LaunchScreen.storyboard */; };
 		B7868CC11BA7890B0052FB18 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7868CC01BA7890B0052FB18 /* AppData.swift */; settings = {ASSET_TAGS = (); }; };
+		B7EB9E051BA8DB7800FACD60 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7EB9E041BA8DB7800FACD60 /* data.plist */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B77103691BA618A70029BF68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B771036B1BA618A70029BF68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7868CC01BA7890B0052FB18 /* AppData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		B7EB9E041BA8DB7800FACD60 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				B77103681BA618A70029BF68 /* LaunchScreen.storyboard */,
 				B771036B1BA618A70029BF68 /* Info.plist */,
 				B7868CC01BA7890B0052FB18 /* AppData.swift */,
+				B7EB9E041BA8DB7800FACD60 /* data.plist */,
 			);
 			path = iTunesSearchApp;
 			sourceTree = "<group>";
@@ -126,6 +129,7 @@
 			files = (
 				B771036A1BA618A70029BF68 /* LaunchScreen.storyboard in Resources */,
 				B77103671BA618A70029BF68 /* Assets.xcassets in Resources */,
+				B7EB9E051BA8DB7800FACD60 /* data.plist in Resources */,
 				B77103651BA618A70029BF68 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
